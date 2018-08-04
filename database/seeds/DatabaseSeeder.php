@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $faker = Faker::create();
+        foreach (range(1,10) as $index) {
+            DB::table('vouchers')->insert([
+                'name' => $faker->name,
+                'images' => $faker->imageUrl($width = 640, $height = 480),
+                'promo' => $faker->numberBetween(0, 100),
+            ]);
+        }
     }
 }
