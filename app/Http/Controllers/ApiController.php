@@ -31,7 +31,7 @@ class ApiController extends Controller
         $owner = $req->owner;
 
         try {
-            $exists = Products::where('barcode_hash', $req->barcode)
+            $exists = Products::where('barcode_hash', $barcode)
                 ->firstOrDefault();
 
             $machine_exists = RecycleBins::where('trash_uuid', $machine_id)

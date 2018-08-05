@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::post('/login', 'ApiController@login');
 Route::post('/logout', 'ApiController@logout');
 
-Route::post('/trash_input', 'ApiController@scanBarcode');
+Route::get('/trash_input', 'ApiController@scanBarcode');
 
 Route::middleware('auth:api')->group(function() {
     Route::get('/user', function (Request $request) {
