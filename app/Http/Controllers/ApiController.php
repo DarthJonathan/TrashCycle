@@ -47,7 +47,7 @@ class ApiController extends Controller
             return response()->json(['success' => true], 200);
 
         } catch (\Exception $e) {
-            return response()->json(['success' => false, 'errors' => $e->getMessage()], 400);
+            return response()->json(['success' => false, 'errors' => $e->getMessage()], 200);
         }
     }
 }
