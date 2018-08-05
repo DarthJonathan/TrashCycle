@@ -44,6 +44,12 @@ class ApiController extends Controller
             $exists->trash_id = $machine_exists->id;
             $exists->save();
 
+            $userpoints = UserPoints::where('user_id', $owner->id)
+                ->firstOrFail();
+
+            $userpoints->points = $userpoints->points + 1;
+            $userpoints->save();
+
             return response()->json(['success' => true], 200);
 
         } catch (\Exception $e) {
