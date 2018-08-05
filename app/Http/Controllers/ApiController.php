@@ -24,6 +24,10 @@ class ApiController extends Controller
         return response()->json($points);
     }
 
+    function points() {
+        return response()->json(UserPoints::where('user_id', 1)->first());
+    }
+
     function vouchers(){
         return Vouchers::all();
     }
