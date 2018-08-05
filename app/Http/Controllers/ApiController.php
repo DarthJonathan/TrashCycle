@@ -40,7 +40,7 @@ class ApiController extends Controller
             $owner = User::where('id', $owner)
                 ->firstOrFail();
 
-            $exists->owner_id = $owner;
+            $exists->owner_id = $owner->id;
             $exists->trash_id = $machine_exists->id;
             $exists->save();
 
