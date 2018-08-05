@@ -32,13 +32,13 @@ class ApiController extends Controller
 
         try {
             $exists = Products::where('barcode_hash', $barcode)
-                ->firstOrDefault();
+                ->firstOrFail();
 
             $machine_exists = RecycleBins::where('trash_uuid', $machine_id)
-                ->firstOrDefault();
+                ->firstOrFail();
 
             $owner = User::where('id', $owner)
-                ->firstOrDefault();
+                ->firstOrFail();
 
             $exists->owner_id = $owner;
             $exists->trash_id = $machine_exists->id;
