@@ -8,6 +8,7 @@ use App\User;
 use App\UserPoints;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Vouchers;
 
 class ApiController extends Controller
 {
@@ -21,6 +22,10 @@ class ApiController extends Controller
             ->first();
 
         return response()->json($points);
+    }
+
+    function vouchers(){
+        return Vouchers::all();
     }
 
     function scanBarcode(Request $req)

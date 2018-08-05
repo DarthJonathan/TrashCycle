@@ -18,6 +18,8 @@ Route::post('/logout', 'ApiController@logout');
 
 Route::get('/trash_input', 'ApiController@scanBarcode');
 
+Route::get('/vouchers','ApiController@vouchers');
+
 Route::middleware('auth:api')->group(function() {
     Route::get('/user', function (Request $request) {
         return $request->user();
